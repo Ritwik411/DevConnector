@@ -1,0 +1,3 @@
+{
+    "mongoURI":"mongodb+srv://ritwik123:<password>@devconnector.sihim.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+}
