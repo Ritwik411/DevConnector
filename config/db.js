@@ -1,10 +1,11 @@
-import { Mongoose } from "mongoose";
+import mongoose from "mongoose";
 import config from "config";
 const db = config.get("mongoURI");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(db);
+    console.log(db);
+    await mongoose.connect(db, {});
     console.log("MongoDB connected!");
   } catch (e) {
     console.log(e);
@@ -13,4 +14,4 @@ const connectDB = async () => {
   }
 };
 
-export default connectDB();
+export default connectDB;

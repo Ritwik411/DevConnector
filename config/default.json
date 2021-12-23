@@ -1,3 +1,4 @@
 {
-    "mongoURI":"mongodb+srv://ritwik123:<password>@devconnector.sihim.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "mongoURI":"mongodb+srv://ritwik123:ritwik123@devconnector.sihim.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtToken":"secretToken"
 }
