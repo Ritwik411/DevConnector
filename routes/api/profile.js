@@ -4,6 +4,8 @@ import auth from "../../middleware/auth.js";
 import ProfileSchema from "../../models/Profile.js";
 import UserSchema from "../../models/User.js";
 import { check, validationResult } from "express-validator";
+import request from "request";
+import config from "config";
 const Profile = ProfileSchema;
 const User = UserSchema;
 
@@ -283,4 +285,29 @@ ProfileRouter.delete("/experience/:exp_id", auth, async (req, res) => {
   }
 });
 
+//@route GET api/profile/github/username
+//@desc Get user repos from github profile
+//@acess Public
+
+ProfileRouter.get("/github/:username", (req, res) => {
+  try {
+    const options = {
+      uri: `https://api.github.com/users/${req.params.username}/repos?per_page=5
+      &sort=created:asc&client_id=${config.get("githubClientID")}
+      &client_secret=${config.get("githubClientSecret")}`,
+      method: "GET",
+      headers: { "user-agent": "node.js" },
+    };
+    request(options, (error, response, body) => {
+      if (error) console.error(error);
+      if (res.statusCode !== 200) {
+        return res.status(404).json({ msg: "No Github Profile Found" });
+      }
+      res.json(JSON.parse(body));
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server Error");
+  }
+});
 export default ProfileRouter;

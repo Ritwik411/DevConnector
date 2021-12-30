@@ -1,4 +1,6 @@
 {
     "mongoURI":"mongodb+srv://ritwik123:ritwik123@devconnector.sihim.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    "jwtToken":"secretToken"
+    "jwtToken":"secretToken",
+    "githubClientID":"f5edc95bb9d6afe45c80",
+    "githubClientSecret":"b8116f85fa9e000b46e7ee9755d6de37ea69f84a"
 }
