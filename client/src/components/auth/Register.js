@@ -1,8 +1,9 @@
 import React, { Fragment, useState } from "react";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { connect } from "react-redux"; // To connect component to Redux
 import { setAlert } from "../../actions/alert";
+import PropTypes from "prop-types";
 
 const Register = ({ setAlert }) => {
   const [formData, setFormData] = useState({
@@ -81,4 +82,7 @@ const Register = ({ setAlert }) => {
   );
 };
 
-export default connect(null, { setAlert })(withRouter(Register));
+Register.protoTypes = {
+  setAlert: PropTypes.func.isRequired,
+};
+export default connect(null, { setAlert })(withRouter(Register)); // null is the state
